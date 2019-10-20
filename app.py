@@ -4,7 +4,7 @@ import yaml
 import os
 from bs4 import BeautifulSoup
 import requests, sys
-import request
+from key import key
 
 stdout = sys.stdout
 
@@ -13,26 +13,36 @@ environment = os.getenv("ENVIRONMENT", "development")
 
 app = Flask(__name__)
 
+alm = ["spiderman", "Goal", "joker", "the dark knight", "avatar", "hacker", "gladiator"]
 
 conn = http.client.HTTPSConnection("api.themoviedb.org")
 
-payload = "{}"
+def search_image(alm, movie, conn):
 
-conn.request("GET", "/3/search/movie?api_key=12217434ad2932f49fc3abd52e259e8a&language=en-US&query=spiderman", payload)
+    payload = "{}"
 
-res = conn.getresponse()
-data = res.read()
-x = data.decode("utf-8")
+    conn.request("GET", "/3/search/movie?api_key="+key+"&language=en-US&query="+ movie, payload)
 
-d = json.loads(x)
+    res = conn.getresponse()
+    data = res.read()
+    x = data.decode("utf-8")
 
-z = d["results"][0]["poster_path"]
-w = "http://image.tmdb.org/t/p/w92"+z
+    d = json.loads(x)
 
-Picture_request = requests.get(w)
-if Picture_request.status_code == 200:
-    with open("image.jpg", 'wb') as f:
-        f.write(Picture_request.content)
+
+    z = d["results"][0]["poster_path"]
+    w = "http://image.tmdb.org/t/p/w92"+z
+
+    Picture_request = requests.get(w)
+    if Picture_request.status_code == 200:
+        with open("./static/img/"+movie+".jpg", 'wb') as f:
+            f.write(Picture_request.content)
+
+
+for i in range(len(alm)):
+    search_image(alm, alm[i],conn)
+
+
 
 '''
 def json_Brain(x):
