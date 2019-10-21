@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -8,22 +8,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
 
   </head>
+  <body>
   {% block body %}
     <div class="test" >
     <h2 class="text-light"> My favorite movies </h2>
         <div class="card-deck">
+            {% set count = 0 %}
             {% for i in range(6) %}
                 <div class="card shadow" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title"><img class="img" src={{src[i]}}>{{movie[i]}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
+                            <h6 class="card-subtitle mb-2 text-muted" title="release date"><img class="sub_img" src="./static/img/date.png">{{date[i]}}</h6>
                             <p class="card-text">Here will be the overview</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Request info
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">The movie DB</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="https://www.themoviedb.org/">Visit The Movie DB webpage.</a>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
                         </div>
                 </div>
             {% endfor %}
@@ -31,59 +63,47 @@
     </div>
 
 <div class="test2" >
-<h2 class="text"> Discover New Solutions </h2>
+<h2 class="text"> Some cool movies </h2>
     <div class="card-deck">
+            {% for i in range(6) %}
                 <div class="card shadow" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
+                            <h5 class="card-title"><img class="img" src={{src2[i]}}>{{movie2[i]}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted" title="release date"><img class="sub_img" src="./static/img/date.png">{{date2[i]}}</h6>
+                            <p class="card-text">Here will be the overview</p>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Request info
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">The movie DB</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="https://www.themoviedb.org/">Visit The Movie DB webpage.</a>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
                         </div>
                 </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
-                        </div>
-                </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
-                        </div>
-                </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-success">Install</button>
-                            <button type ="button" class="btn btn-outline-primary reducefontsize">Request info</button>
-                        </div>
-                </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
-                        </div>
-                </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
-                        </div>
-                </div>
-            </div>
+            {% endfor %}
+            
     </div>
+</div>
 
     <div class ="test2">
     <div class="card-deck">
@@ -160,8 +180,11 @@
     </div>
 {% endblock %}
     
-
-
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
 
   </body>
 </html>

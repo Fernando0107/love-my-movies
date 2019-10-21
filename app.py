@@ -15,10 +15,24 @@ app = Flask(__name__)
 movie_title = []
 movie_overview = []
 movie_source = []
+movie_date = []
+movie_title2 = []
+movie_overview2 = []
+movie_source2 = []
+movie_date2 = []
+movie_title3 = []
+movie_overview3 = []
+movie_source3 = []
+movie_date3 = []
 
-alm = ["spiderman", "Goal", "joker", "Samurai", "avatar", "hacker", "gladiator"]
+alm = ["spiderman", "Goal", "joker", "Transformer", "avatar", "hacker",
+       "Gemini", "Aladdin", "Cars", "Avengers", "venom", "gladiator", "Godzilla", "Inception", "crawl", "ant-man", "star-wars", "deadpool"]
+alm2 = ["Gemini", "Aladdin", "Cars", "Avengers", "venom", "gladiator"]
+alm3 = ["Godzilla", "Inception", "crawl", "ant-man", "star-wars", "deadpool"]
 
 conn = http.client.HTTPSConnection("api.themoviedb.org")
+
+k = 0
 
 def search_image(alm, movie, conn):
 
@@ -37,10 +51,25 @@ def search_image(alm, movie, conn):
     name = d["results"][0]["original_title"]
     overview = d["results"][0]["overview"]
     src = "./static/img/"+movie+".jpg"
+    date = d["results"][0]["release_date"]
 
     movie_title.append(name)
     movie_overview.append(overview)
     movie_source.append(src)
+    movie_date.append(date)
+
+    if movie in alm2:
+        movie_title2.append(name)
+        movie_overview2.append(overview)
+        movie_source2.append(src)
+        movie_date2.append(date)
+
+    if movie in alm3:
+        movie_title3.append(name)
+        movie_overview3.append(overview)
+        movie_source3.append(src)
+        movie_date3.append(date)
+
 
     w = "http://image.tmdb.org/t/p/w92"+z
 
@@ -50,14 +79,16 @@ def search_image(alm, movie, conn):
             f.write(Picture_request.content)
 
 
+k = 0
 for i in range(len(alm)):
-    search_image(alm, alm[i],conn)
+    search_image(alm,alm[i],conn)
+
 
 
 @app.route('/')                                         #Es la ruta "home"
 def index():
     
-    return render_template("home.html", movie = movie_title, src=movie_source, overview=movie_overview)
+    return render_template("home.html", movie=movie_title, src=movie_source, overview=movie_overview, date=movie_date, movie2=movie_title2, src2=movie_source2, overview2=movie_overview2, date2=movie_date2, movie3=movie_title3, src3=movie_source3, overview3=movie_overview3, date3=movie_date3)
 
 
 movie = "the flash"
