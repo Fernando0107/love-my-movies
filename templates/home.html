@@ -5,9 +5,22 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/static/CSS/styles.css" media="screen" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAzNYVAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAiACIAIgAiACIAIgAiACAAAAAAAAAAARARERERERAREBEREREREBEQEREREREQERARERERERAREBEREREREBEQEREREREQERARERERERAREBEREREREBAAAAAAAAAAAgAiACIAIgAiACIAIgAiACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script language="javascript">
+        function addone(field) {
+            field.value = Number(field.value) + 1;
+        }
+
+        function subtractone(field) {
+            field.value = Number(field.value) - 1;
+        }
+    </script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script>
@@ -25,7 +38,7 @@
             {% set count = 0 %}
             {% for i in range(6) %}
                 <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body" align="center">
                             <h5 class="card-title"><img class="img" src={{src[i]}}>{{movie[i]}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted" title="release date"><img class="sub_img" src="./static/img/date.png">{{date[i]}}</h6>
                             <p class="card-text">Here will be the overview</p>
@@ -33,7 +46,6 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Request info
                             </button>
-
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -54,8 +66,9 @@
                             </div>
                             </div>
                         </div>
-                        <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <div class="card-footer" align="center">
+                            <input type="button" class="btn btn-success" value="Like! " onclick="addone(myfield);" onclick="this.disabled = true"> 
+                            <input type="button" class="btn btn-danger" value="Unlike!" onclick="subtractone(myfield);"><br>
                         </div>
                 </div>
             {% endfor %}
@@ -67,7 +80,7 @@
     <div class="card-deck">
             {% for i in range(6) %}
                 <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body" align="center">
                             <h5 class="card-title"><img class="img" src={{src2[i]}}>{{movie2[i]}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted" title="release date"><img class="sub_img" src="./static/img/date.png">{{date2[i]}}</h6>
                             <p class="card-text">Here will be the overview</p>
@@ -96,8 +109,9 @@
                             </div>
                             </div>
                         </div>
-                        <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <div class="card-footer" align="center">
+                        <input type="button" class="btn btn-success" value="Like! " onclick="addone(myfield);" onclick="this.disabled = true"> 
+                        <input type="button" class="btn btn-danger" value="Unlike!" onclick="subtractone(myfield);"><br>
                         </div>
                 </div>
             {% endfor %}
@@ -105,86 +119,58 @@
     </div>
 </div>
 
-    <div class ="test2">
+   <div class="test2" >
     <div class="card-deck">
-                <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
-                        </div>
-                </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-success">Install</button>
-                        <button type ="button" class="btn btn-outline-primary reducefontsize">Request info</button>
-                        </div>
-                </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
-                        </div>
-                </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-success">Install</button>
-                            <button type ="button" class="btn btn-outline-primary reducefontsize">Request info</button>
-                        </div>
-                </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
-                        </div>
-                </div>
-            <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type ="button" class="btn btn-success">Install</button>
-                            <button type ="button" class="btn btn-outline-primary reducefontsize">Request info</button>
-                        </div>
-                </div>
-            </div>
-
-    </div>
-
-    <div class ="test2">
-    <h2 class="text"> test </h2>
-        <div class="card-deck">
             {% for i in range(6) %}
                 <div class="card shadow" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><img class="img" src={{src[i]}}>{{movie[i]}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
+                        <div class="card-body" align="center">
+                            <h5 class="card-title"><img class="img" src={{src3[i]}}>{{movie3[i]}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted" title="release date"><img class="sub_img" src="./static/img/date.png">{{date2[i]}}</h6>
                             <p class="card-text">Here will be the overview</p>
-                            <button type ="button" class="btn btn-outline-primary">Request info</button>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Request info
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">The movie DB</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="https://www.themoviedb.org/">Visit The Movie DB webpage.</a>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="card-footer" align="center">
+                            <input type="button" class="btn btn-success" value="Like! " onclick="addone(myfield);" onclick="this.disabled = true"> 
+                            <input type="button" class="btn btn-danger" value="Unlike!" onclick="subtractone(myfield);"><br>
                         </div>
                 </div>
             {% endfor %}
-        </div>
-
+            
     </div>
+</div>
 {% endblock %}
     
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/like-dislike.js"></script>
+    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+<!-- LikeBtn.com END -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-</body>
 
   </body>
 </html>

@@ -4,6 +4,7 @@ import yaml
 import os
 import requests, sys
 from key import key
+from var import *
 
 stdout = sys.stdout
 
@@ -12,27 +13,7 @@ environment = os.getenv("ENVIRONMENT", "development")
 
 app = Flask(__name__)
 
-movie_title = []
-movie_overview = []
-movie_source = []
-movie_date = []
-movie_title2 = []
-movie_overview2 = []
-movie_source2 = []
-movie_date2 = []
-movie_title3 = []
-movie_overview3 = []
-movie_source3 = []
-movie_date3 = []
-
-alm = ["spiderman", "Goal", "joker", "Transformer", "avatar", "hacker",
-       "Gemini", "Aladdin", "Cars", "Avengers", "venom", "gladiator", "Godzilla", "Inception", "crawl", "ant-man", "star-wars", "deadpool"]
-alm2 = ["Gemini", "Aladdin", "Cars", "Avengers", "venom", "gladiator"]
-alm3 = ["Godzilla", "Inception", "crawl", "ant-man", "star-wars", "deadpool"]
-
 conn = http.client.HTTPSConnection("api.themoviedb.org")
-
-k = 0
 
 def search_image(alm, movie, conn):
 
@@ -78,11 +59,8 @@ def search_image(alm, movie, conn):
         with open("./static/img/"+movie+".jpg", 'wb') as f:
             f.write(Picture_request.content)
 
-
-k = 0
 for i in range(len(alm)):
     search_image(alm,alm[i],conn)
-
 
 
 @app.route('/')                                         #Es la ruta "home"
