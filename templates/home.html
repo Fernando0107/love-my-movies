@@ -13,61 +13,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   </head>
+  {% block body %}
     <div class="test" >
-    <h2 class="text-light"> Popular Solutions </h2>
+    <h2 class="text-light"> My favorite movies </h2>
         <div class="card-deck">
-            <div class="card shadow" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button type ="button" class="btn btn-outline-primary">Request info</button>
-                    </div>
-            </div>
-        <div class="card shadow" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button type ="button" class="btn btn-success">Install</button>
-                        <button type ="button" class="btn btn-outline-primary reducefontsize">Request info</button>
-                    </div>
-            </div>
-        <div class="card shadow" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button type ="button" class="btn btn-success">Install</button>
-                    </div>
-            </div>
-        <div class="card shadow" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button type ="button" class="btn btn-success">Install</button>
-                    </div>
-            </div>
-        <div class="card shadow" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button type ="button" class="btn btn-success">Install</button>
-                    </div>
-            </div>
-        <div class="card shadow" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><img class="img" src="./static/img/pp.png">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button type ="button" class="btn btn-success">Install</button>
-                        <button type ="button" class="btn btn-outline-primary reducefontsize">Request info</button>
-                    </div>
-            </div>
+            {% for i in range(6) %}
+                <div class="card shadow" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><img class="img" src={{src[i]}}>{{movie[i]}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
+                            <p class="card-text">Here will be the overview</p>
+                            <button type ="button" class="btn btn-outline-primary">Request info</button>
+                        </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
+
 <div class="test2" >
 <h2 class="text"> Discover New Solutions </h2>
     <div class="card-deck">
@@ -179,6 +141,24 @@
             </div>
 
     </div>
+
+    <div class ="test2">
+    <h2 class="text"> test </h2>
+        <div class="card-deck">
+            {% for i in range(6) %}
+                <div class="card shadow" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><img class="img" src={{src[i]}}>{{movie[i]}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><img class="sub_img" src="./static/img/hotel.png">Card subtitle</h6>
+                            <p class="card-text">Here will be the overview</p>
+                            <button type ="button" class="btn btn-outline-primary">Request info</button>
+                        </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}
     
 
 
