@@ -3,6 +3,7 @@ from flask import Flask, render_template, jsonify, redirect, json
 import yaml
 import os
 import requests, sys
+from redis import Redis
 from key import key
 from var import *
 
@@ -12,6 +13,7 @@ developer = os.getenv("DEVELOPER", "User")
 environment = os.getenv("ENVIRONMENT", "development")
 
 app = Flask(__name__)
+redis = Redis(host='redis', port=6379)
 
 conn = http.client.HTTPSConnection("api.themoviedb.org")
 
