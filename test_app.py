@@ -1,11 +1,7 @@
-from var import test
-
-test = True
-
-def test_brain(test):
-  assert test == True
+def test_brain():
+      assert 14 - 7 == 7
 
 
 if __name__ == "__main__":
-    test_brain(test)
+    test_brain()
     print("Everything passed")
