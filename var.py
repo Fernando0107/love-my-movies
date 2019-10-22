@@ -15,3 +15,5 @@ alm = ["spiderman", "Goal", "joker", "ex-machina", "avatar", "hacker",
        "Gemini", "Aladdin", "Cars", "Avengers", "venom", "gladiator", "Godzilla", "Inception", "crawl", "ant-man", "star-wars", "deadpool"]
 alm2 = ["Gemini", "Aladdin", "Cars", "Avengers", "venom", "gladiator"]
 alm3 = ["Godzilla", "Inception", "crawl", "ant-man", "star-wars", "deadpool"]
+
+test = True

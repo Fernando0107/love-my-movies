@@ -1,13 +1,10 @@
 import http.client
 from flask import Flask, render_template, jsonify, redirect, json
-import yaml
-import os
-import requests, sys
+import requests, sys, os, yaml
 from redis import Redis
 from key import key
 from var import *
 
-stdout = sys.stdout
 
 developer = os.getenv("DEVELOPER", "User")
 environment = os.getenv("ENVIRONMENT", "development")
@@ -83,4 +80,5 @@ def test():
 
 if __name__ == '__main__':
 
-  app.run(host="0.0.0.0", debug=True)
+    test = True
+    app.run(host="0.0.0.0", debug=True)
