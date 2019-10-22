@@ -1,5 +1,7 @@
 from var import test
 
+test = True
+
 def test_brain(test):
   assert test == True
 
