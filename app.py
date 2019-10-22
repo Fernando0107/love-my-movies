@@ -73,7 +73,7 @@ def index():
 
 movie = "the flash"
 
-@app.route('/search')  # Es la ruta "home"
+@app.route('/search')  #Solo para referencia
 def test():
 
     x = render_template("brain.html", movie=movie)

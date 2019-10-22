@@ -53,7 +53,7 @@ The app will look like this:
 
 To build my dockerfile image: 
 
-    docker build -t fernando7/movie:v2.0
+    docker build -t fernando7/movie:v2.5
 
 To run my Docker file: 
 
@@ -61,15 +61,15 @@ To run my Docker file:
 
     or...
 
-    docker run -d -p 5000:5000 fernando7/movie:v2.0 
+    docker run -d -p 5000:5000 fernando7/movie:v2.5
 
 To push the container to my Docker Hub: 
 
-    docker push fernando7/movie:v2.0  
+    docker push fernando7/movie:v2.5  
 
 To pull my container:
 
-    docker pull fernando7/movie:v2.0
+    docker pull fernando7/movie:v2.5
 
 http://{docker-machine ip}:5000/ this is the url that you will need to use to watch the app running, wich has the ip of the docker machine.
 
