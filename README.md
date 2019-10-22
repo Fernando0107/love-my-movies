@@ -53,11 +53,15 @@ The app will look like this:
 
 To build my dockerfile image: 
 
-    docker build -t fernando7/soup:v2.0
+    docker build -t fernando7/movie:v2.0
 
 To run my Docker file: 
 
     docker-compose up
+
+    or...
+
+    docker run -d -p 5000:5000 fernando7/movie:v2.0 
 
 To push the container to my Docker Hub: 
 
@@ -67,7 +71,8 @@ To pull my container:
 
     docker pull fernando7/movie:v2.0
 
-http://192.168.99.100:5000/ this is the url where I can see the app running, wich has the ip of my docker machine.
+http://{docker-machine ip}:5000/ this is the url that you will need to use to watch the app running, wich has the ip of the docker machine.
+
 
 ```
 > If you can't see the app running in your localhost, you will need to get the ip of your docker machine. (docker-machine ip)
