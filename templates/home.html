@@ -11,26 +11,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script language="javascript">
-        function addone(field) {
-            field.value = Number(field.value) + 1;
-        }
-
-        function subtractone(field) {
-            field.value = Number(field.value) - 1;
-        }
-    </script>
+    <script language="javascript" src="./static/js/add.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script>
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus')
-        })
-    </script>
+    <script type="text/javascript" src="./static/js/modal.js"></script>
 
   </head>
   <body>
+  <script type="text/javascript" src="./static/js/clicks.js"></script>
   {% block body %}
     <div class="test" >
     <h2 class="text-light"> My favorite movies </h2>
@@ -67,8 +56,9 @@
                             </div>
                         </div>
                         <div class="card-footer" align="center">
-                            <input type="button" class="btn btn-success" value="Like! " onclick="addone(myfield);" onclick="this.disabled = true"> 
+                            <input type="button" class="btn btn-success" value="Like! " onclick="this.disabled = true"> 
                             <input type="button" class="btn btn-danger" value="Unlike!" onclick="subtractone(myfield);"><br>
+                            <p class="h6"><small class="text-muted">Likes: <a id="clicks">{{vote[i]}}</a></small></p>
                         </div>
                 </div>
             {% endfor %}
@@ -110,8 +100,9 @@
                             </div>
                         </div>
                         <div class="card-footer" align="center">
-                        <input type="button" class="btn btn-success" value="Like! " onclick="addone(myfield);" onclick="this.disabled = true"> 
-                        <input type="button" class="btn btn-danger" value="Unlike!" onclick="subtractone(myfield);"><br>
+                        <input type="button" class="btn btn-success" value="Like! " onclick="this.disabled = true"> 
+                            <input type="button" class="btn btn-danger" value="Unlike!" onclick="subtractone(myfield);"><br>
+                            <p class="h6"><small class="text-muted">Likes: <a id="clicks">{{vote2[i]}}</a></small></p>
                         </div>
                 </div>
             {% endfor %}
@@ -153,8 +144,9 @@
                             </div>
                         </div>
                         <div class="card-footer" align="center">
-                            <input type="button" class="btn btn-success" value="Like! " onclick="addone(myfield);" onclick="this.disabled = true"> 
+                            <input type="button" class="btn btn-success" value="Like! " onclick="this.disabled = true"> 
                             <input type="button" class="btn btn-danger" value="Unlike!" onclick="subtractone(myfield);"><br>
+                            <p class="h6"><small class="text-muted">Likes: <a id="clicks">{{vote3[i]}}</a></small></p>
                         </div>
                 </div>
             {% endfor %}

@@ -10,6 +10,9 @@ movie_title3 = []
 movie_overview3 = []
 movie_source3 = []
 movie_date3 = []
+movie_vote =[]
+movie_vote2 = []
+movie_vote3 = []
 
 alm = ["spiderman", "Goal", "joker", "ex-machina", "avatar", "hacker",
        "Gemini", "Aladdin", "Cars", "Avengers", "venom", "gladiator", "Godzilla", "Inception", "crawl", "ant-man", "star-wars", "deadpool"]
