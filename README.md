@@ -53,7 +53,7 @@ The app will look like this:
 
 To build my dockerfile image: 
 
-    docker build -t fernando7/movie:v3.0
+    docker build -t fernando7/movie:v3.5
 
 To run my Docker file: 
 
@@ -61,15 +61,15 @@ To run my Docker file:
 
     or...
 
-    docker run -d -p 5000:5000 fernando7/movie:v3.0
+    docker run -d -p 5000:5000 fernando7/movie:v3.5
 
 To push the container to my Docker Hub: 
 
-    docker push fernando7/movie:v3.0 
+    docker push fernando7/movie:v3.5 
 
 To pull my container:
 
-    docker pull fernando7/movie:v3.0
+    docker pull fernando7/movie:v3.5
 
 http://{docker-machine ip}:5000/ this is the url that you will need to use to watch the app running, wich has the ip of the docker machine.
 
@@ -123,8 +123,8 @@ Which gave me [trending_movies.json](trending_movies.json)
 
 - [x] Use Flask as backend (for now)
 - [ ] Use Redis as the counter DB (incr/decr vote_count)
-- [ ] Use Redis to store any details or additional info for the movies (JSON respond)
-- [ ] Use Redis as a cache.
+- [x] Use Redis to store any details or additional info for the movies (JSON respond)
+- [x] Use Redis as a cache.
 - [x] CI/CD (you can use GithubActions (beta) / Gitlab CI /Travis/ Circle CI)
 - [x] Dockerfile with a valid docker build & push to a valid Docker Hub repository.
 - [x] A good html/css layout of your own.
